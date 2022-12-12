@@ -1,0 +1,21 @@
+.logo {
+  display: block;
+
+  @include font($fam: "Raleway", $wt: 700, $sz: 24px, $lh: 28px, $color: $colorAccent, $decor: none);
+
+  &--theme-light {
+    .logo__suffix {
+      color: $colorLogoSuffixDark;
+    }
+  }
+
+  &--theme-dark {
+    .logo__suffix {
+      color: $colorLogoSuffixLight;
+    }
+  }
+
+  @include respond("desktop") {
+    @include font($sz: 26px, $lh: 31px);
+  }
+}

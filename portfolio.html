@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Портфоліо WebStudio</title>
+
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <!-- prettier-ignore -->
+        <a class="logo logo--theme-light" href="./index.html" lang="en">
+            Web<span class="logo__suffix">Studio</span>
+        </a>
+        <nav class="header__nav">
+          <ul class="site-nav">
+            <li><a class="site-nav__link" href="./index.html">Студія</a></li>
+            <li><a class="site-nav__link site-nav__link--current" href="./portfolio.html">Портфоліо</a></li>
+            <li><a class="site-nav__link" href="#contacts">Контакти</a></li>
+          </ul>
+        </nav>
+
+        <ul class="header__contacts">
+          <li>
+            <a class="header__contact-link" href="mailto:info@devstudio.com">
+              <svg class="header__contact-icon" width="16" height="12">
+                <use href="./images/icons.svg#icon-email"></use>
+              </svg>
+              info@devstudio.com
+            </a>
+          </li>
+          <li>
+            <a class="header__contact-link" href="tel:+380961111111">
+              <svg class="header__contact-icon" width="10" height="16">
+                <use href="./images/icons.svg#icon-phone"></use>
+              </svg>
+              +38 096 111 11 11
+            </a>
+          </li>
+        </ul>
+        <!-- Menu open -->
+        <button class="header__btn-menu" aria-expanded="false" aria-controls="mobile_menu" data-menu-open>
+          <svg class="header__menu-icon">
+            <use class="open" href="./images/icons.svg#icon-menu-open"></use>
+            <!-- <use class="close" href="./images/icons.svg#icon-menu-close"></use> -->
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="works">
+        <div class="container">
+          <h1 class="works__title">Реалізовані проекти</h1>
+
+          <!-- Filters -->
+          <ul class="works__filters-list" role="group">
+            <li class="filter">
+              <label>
+                <input class="filter__input" type="checkbox" name="filter" value="all" />
+                <span class="filter__label">Усі</span>
+              </label>
+            </li>
+            <li class="filter">
+              <label>
+                <input class="filter__input" type="checkbox" name="filter" value="website" />
+                <span class="filter__label">Веб-сайти</span>
+              </label>
+            </li>
+            <li class="filter">
+              <label>
+                <input class="filter__input" type="checkbox" name="filter" value="app" />
+                <span class="filter__label">Додатки</span>
+              </label>
+            </li>
+            <li class="filter">
+              <label>
+                <input class="filter__input" type="checkbox" name="filter" value="design" />
+                <span class="filter__label">Дизайн</span>
+              </label>
+            </li>
+            <li class="filter">
+              <label>
+                <input class="filter__input" type="checkbox" name="filter" value="marketing" />
+                <span class="filter__label">Маркетинг</span>
+              </label>
+            </li>
+          </ul>
+
+          <!-- Projects -->
+
+          <ul class="works__list">
+            <li class="works__list-item">
+              <a class="works__link" href="">
+                <div class="work">
+                  <div class="work__thumb">
+                    <img src="./images/portfolio/portfolio-technokryak.jpg" alt="Дизайн сторінки сайту" />
+                    <!-- Info -->
+                    <div class="work__overlay">
+                      <p class="work__about">
+                        Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить
+                        відвідувачу отримати вичерпні відомості про компанію чи приватну особу.
+                      </p>
+                    </div>
+                  </div>
+                  <!-- work__Desc -->
+                  <div class="work__desc">
+                    <h2 class="work__subtitle">Технокряк</h2>
+                    <p class="work__type">Веб-сайт</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="works__list-item">
+              <a class="works__link" href="">
+                <div class="work">
+                  <div class="work__thumb">
+                    <img src="./images/portfolio/portfolio-new-orlean-vs-golden-star.jpg" alt="Дизайн постера" />
+                    <!-- Info -->
+                    <div class="work__overlay">
+                      <p class="work__about">
+                        Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить
+                        відвідувачу отримати вичерпні відомості про компанію чи приватну особу.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="work__desc">
+                    <h2 class="work__subtitle">Постер New Orlean vs Golden Star</h2>
+                    <p class="work__type">Дизайн</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="works__list-item">
+              <a class="works__link" href="">
+                <div class="work">
+                  <div class="work__thumb">
+                    <img src="./images/portfolio/portfolio-seafood.jpg" alt="Логотип ресторану" />
+                    <!-- Info -->
+                    <div class="work__overlay">
+                      <p class="work__about">
+                        Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить
+                        відвідувачу отримати вичерпні відомості про компанію чи приватну особу.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="work__desc">
+                    <h2 class="work__subtitle">Ресторан Seafood</h2>
+                    <p class="work__type">Додаток</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="works__list-item">
+              <a class="works__link" href="">
+                <div class="work">
+                  <div class="work__thumb">
+                    <img src="./images/portfolio/portfolio-prime.jpg" alt="Фото навушників" />
+                    <!-- Info -->
+                    <div class="work__overlay">
+                      <p class="work__about">
+                        Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить
+                        відвідувачу отримати вичерпні відомості про компанію чи приватну особу.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="work__desc">
+                    <h2 class="work__subtitle">Проєкт Prime</h2>
+                    <p class="work__type">Маркетинг</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="works__list-item">
+              <a class="works__link" href="">
+                <div class="work">
+                  <div class="work__thumb">
+                    <img src="./images/portfolio/portfolio-boxes.jpg" alt="Фото коробок" />
+                    <!-- Info -->
+                    <div class="work__overlay">
+                      <p class="work__about">
+                        Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить
+                        відвідувачу отримати вичерпні відомості про компанію чи приватну особу.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="work__desc">
+                    <h2 class="work__subtitle">Проєкт Boxes</h2>
+                    <p class="work__type">Додаток</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="works__list-item">
+              <a class="works__link" href="">
+                <div class="work">
+                  <div class="work__thumb">
+                    <img
+                      src="./images/portfolio/portfolio-inspiration-has-no-borders.jpg"
+                      alt="Дизайн сторінки сайту"
+                    />
+                    <!-- Info -->
+                    <div class="work__overlay">
+                      <p class="work__about">
+                        Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить
+                        відвідувачу отримати вичерпні відомості про компанію чи приватну особу.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="work__desc">
+                    <h2 class="work__subtitle">Inspiration has no Borders</h2>
+                    <p class="work__type">Веб-сайт</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="works__list-item">
+              <a class="works__link" href="">
+                <div class="work">
+                  <div class="work__thumb">
+                    <img src="./images/portfolio/portfolio-limited-edition.jpg" alt="Дизайн розвороту видання" />
+                    <!-- Info -->
+                    <div class="work__overlay">
+                      <p class="work__about">
+                        Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить
+                        відвідувачу отримати вичерпні відомості про компанію чи приватну особу.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="work__desc">
+                    <h2 class="work__subtitle">Видання Limited Edition</h2>
+                    <p class="work__type">Дизайн</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="works__list-item">
+              <a class="works__link" href="">
+                <div class="work">
+                  <div class="work__thumb">
+                    <img src="./images/portfolio/portfolio-lab.jpg" alt="Логотип Lab" />
+                    <!-- Info -->
+                    <div class="work__overlay">
+                      <p class="work__about">
+                        Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить
+                        відвідувачу отримати вичерпні відомості про компанію чи приватну особу.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="work__desc">
+                    <h2 class="work__subtitle">Проєкт LAB</h2>
+                    <p class="work__type">Маркетинг</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="works__list-item">
+              <a class="works__link" href="">
+                <div class="work">
+                  <div class="work__thumb">
+                    <img
+                      src="./images/portfolio/portfolio-growing-business.jpg"
+                      alt="Фото ноутбуку з додатком на екрані"
+                    />
+                    <!-- Info -->
+                    <div class="work__overlay">
+                      <p class="work__about">
+                        Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить
+                        відвідувачу отримати вичерпні відомості про компанію чи приватну особу.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="work__desc">
+                    <h2 class="work__subtitle">Growing Business</h2>
+                    <p class="work__type">Додаток</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+      <div class="footer__container">
+        <h2 class="footer__title">Контакти</h2>
+        <!-- Contacts -->
+        <div class="footer__contacts-group">
+          <!-- prettier-ignore -->
+          <a class="logo logo--theme-dark footer__logo" href="./index.html" lang="en">
+            Web<span class="logo__suffix">Studio</span>
+          </a>
+          <address class="footer__address" id="contacts">
+            <ul class="footer__contacts">
+              <li>
+                <a
+                  class="footer__contact-link footer__contact-link--accent"
+                  href="https://goo.gl/maps/AkviUJwiQwRb5J1W6"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                >
+                  м. Київ, пр-т Лесі Українки, 26
+                </a>
+              </li>
+              <li><a class="footer__contact-link" href="mailto:info@devstudio.com">info@devstudio.com</a></li>
+              <li><a class="footer__contact-link" href="tel:+380961111111">+38 096 111 11 11</a></li>
+            </ul>
+          </address>
+        </div>
+
+        <!-- Socials -->
+        <div class="footer__follow">
+          <b class="footer__subtitle">Приєднуйтесь</b>
+          <ul class="footer__socials">
+            <li>
+              <a class="socials-link socials-link--theme-dark" href="" aria-label="Instagram icon">
+                <svg class="socials-link__icon">
+                  <use href="./images/icons.svg#icon-instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="socials-link socials-link--theme-dark" href="" aria-label="Twitter icon">
+                <svg class="socials-link__icon">
+                  <use href="./images/icons.svg#icon-twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="socials-link socials-link--theme-dark" href="" aria-label="Facebook icon">
+                <svg class="socials-link__icon">
+                  <use href="./images/icons.svg#icon-facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="socials-link socials-link--theme-dark" href="" aria-label="Linkedin icon">
+                <svg class="socials-link__icon">
+                  <use href="./images/icons.svg#icon-linkedin"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Subscribe-->
+
+        <div class="subscribe">
+          <b class="footer__subtitle">Підпишіться на розсилку</b>
+          <form class="subscribe__form" name="formSubscribe">
+            <input class="subscribe__text-input" type="email" name="subscriberEmail" placeholder="E-mail" required />
+            <button class="subscribe__btn" type="submit">
+              Підписатися
+              <svg class="subscribe__icon">
+                <use href="./images/icons.svg#icon-send"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+
+    <div class="backdrop backdrop--hidden" data-backdrop>
+      <div class="modal" data-modal>
+        <button class="modal__btn-close" type="button" data-modal-close>&times;</button>
+        <b class="modal__title">Залиште свої дані, ми вам передзвонимо</b>
+
+        <div class="ordering">
+          <form class="form" name="formOrdering" autocomplete="on">
+            <div class="ordering__text-fields">
+              <!-- Name -->
+              <label class="ordering__field ordering__field--required">
+                <span class="ordering__label">Ім'я</span>
+                <div class="ordering__input-wrapper">
+                  <input
+                    class="ordering__text-input ordering__text-input--with-notice"
+                    type="text"
+                    name="customerName"
+                    placeholder="Jhon Dow"
+                    pattern="^([A-Z][a-z]+\s+[A-Z][a-z]+)|([\u0400-\u042f][\u0430-\u044f]+\s+[\u0400-\u042f][\u0430-\u044f]+)$"
+                    required
+                    autofocus
+                  />
+                  <!-- Field icon -->
+                  <svg class="ordering__field-icon">
+                    <use href="./images/icons.svg#form-icon-person"></use>
+                  </svg>
+                  <!-- Notice icon -->
+                  <svg class="ordering__icon-notice">
+                    <use class="valid" href="./images/icons.svg#form-icon-valid"></use>
+                    <use class="invalid" href="./images/icons.svg#form-icon-invalid"></use>
+                  </svg>
+                </div>
+              </label>
+              <!-- Phone -->
+              <label class="ordering__field ordering__field--required">
+                <span class="ordering__label">Телефон</span>
+                <div class="ordering__input-wrapper">
+                  <input
+                    class="ordering__text-input ordering__text-input--with-notice"
+                    type="tel"
+                    name="customerPhone"
+                    placeholder="+0380991234567"
+                    required
+                    pattern="^\+\d{12,}$"
+                  />
+                  <!-- Field icon -->
+                  <svg class="ordering__field-icon">
+                    <use href="./images/icons.svg#form-icon-phone"></use>
+                  </svg>
+                  <!-- Notice icon -->
+                  <svg class="ordering__icon-notice">
+                    <use class="valid" href="./images/icons.svg#form-icon-valid"></use>
+                    <use class="invalid" href="./images/icons.svg#form-icon-invalid"></use>
+                  </svg>
+                </div>
+              </label>
+              <!-- Email -->
+              <label class="ordering__field">
+                <span class="ordering__label">Пошта</span>
+                <div class="ordering__input-wrapper">
+                  <input
+                    class="ordering__text-input ordering__text-input--with-notice"
+                    type="email"
+                    name="customerEmail"
+                    placeholder="JhonDow@email.com"
+                  />
+                  <!-- Field icon -->
+                  <svg class="ordering__field-icon">
+                    <use href="./images/icons.svg#form-icon-email"></use>
+                  </svg>
+                  <!-- Notice icon-->
+                  <svg class="ordering__icon-notice">
+                    <use class="valid" href="./images/icons.svg#form-icon-valid"></use>
+                    <use class="invalid" href="./images/icons.svg#form-icon-invalid"></use>
+                  </svg>
+                </div>
+              </label>
+              <!-- Comment -->
+              <label class="ordering__field">
+                <span class="ordering__label">Коментар</span>
+                <textarea
+                  class="ordering__text-input ordering__text-input--multiline"
+                  name="customerComment"
+                  placeholder="Введіть текст"
+                ></textarea>
+              </label>
+            </div>
+            <!-- Agreement -->
+            <label class="custom-check custom-check--centered ordering__check">
+              <input class="custom-check__input" type="checkbox" name="agreementCheck" required />
+              <span class="custom-check__label">
+                <span>
+                  Погоджуюся з розсилкою та приймаю
+                  <a class="ordering__terms-link" href="#">Умови договору</a>
+                </span>
+              </span>
+            </label>
+            <button class="ordering__btn" type="submit">Відправити</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--  Mobile menu -->
+
+    <div class="mobile-menu mobile-menu--hidden" id="mobile_menu" data-mobile-menu>
+      <button class="mobile-menu__btn-close" data-menu-close>
+        <svg class="mobile-menu__icon-close">
+          <use href="./images/icons.svg#icon-menu-close"></use>
+        </svg>
+      </button>
+      <!-- nav -->
+      <ul class="mobile-menu__nav">
+        <li><a href="./index.html" class="mobile-menu__nav-link">Студія</a></li>
+        <li><a href="./portfolio.html" class="mobile-menu__nav-link mobile-menu__nav-link--current">Портфоліо</a></li>
+        <li><a href="#" class="mobile-menu__nav-link">Контакти</a></li>
+      </ul>
+      <!-- contacts -->
+      <ul class="mobile-menu__contacts">
+        <li><a href="tel:+380961111111" class="mobile-menu__tel">+38 096 111 11 11</a></li>
+        <li><a href="mailto:info@devstudio.com" class="mobile-menu__email">info@devstudio.com</a></li>
+      </ul>
+      <!-- socials -->
+      <ul class="mobile-menu__socials">
+        <li class="mobile-menu__socials-item"><a href="" class="mobile-menu__socials-link">Instagram</a></li>
+        <li class="mobile-menu__socials-item"><a href="" class="mobile-menu__socials-link">Twitter</a></li>
+        <li class="mobile-menu__socials-item"><a href="" class="mobile-menu__socials-link">Facebook</a></li>
+        <li class="mobile-menu__socials-item"><a href="" class="mobile-menu__socials-link">LinkedIn</a></li>
+      </ul>
+    </div>
+    <!--  -->
+    <script src="./js/scroll-toggle.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/mobile-menu.js"></script>
+  </body>
+</html>

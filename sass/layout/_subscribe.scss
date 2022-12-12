@@ -1,0 +1,54 @@
+.subscribe {
+  flex-grow: 1;
+
+  &__form {
+    @include flexCenter($dir: column, $gap: 20px);
+
+    @include respond("desktop") {
+      flex-direction: row;
+      gap: 12px;
+    }
+  }
+
+  &__text-input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding-left: 16px;
+
+    @include font($sz: 16px, $lh: 20px, $color: rgba(white, 0.6));
+
+    background-color: transparent;
+    filter: drop-shadow(0px 4px 4px rgba(black, 0.15));
+
+    outline: unset;
+    border-radius: 4px;
+    border: 1px solid rgba(white, 0.3);
+    @include mainTransition(border-color);
+
+    @include respond("tablet") {
+      width: 450px;
+    }
+
+    @include respond("desktop") {
+      width: 358px;
+    }
+  }
+
+  &__btn {
+    @extend %btn-primary;
+    @include flexCenter($gap: 10px);
+    width: 200px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.subscribe__text-input {
+  @include focused {
+    border-color: $colorAccent;
+  }
+}

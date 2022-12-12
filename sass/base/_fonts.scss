@@ -1,0 +1,23 @@
+// Fonts https://gwfh.mranftl.com/fonts
+
+$fontNameInterfix: "latin-ext_latin_cyrillic-ext_cyrillic";
+
+//
+// main
+//
+// prettier-ignore
+@include fontFace(
+  $fam: "Roboto", 
+  $wt: (400, 700, 500, 900),
+  $ver: 30, 
+  $interfix: $fontNameInterfix);
+
+//
+// logo
+//
+// prettier-ignore
+@include fontFace(
+  $fam: "Raleway", 
+  $wt: 700, 
+  $ver: 28, 
+  $interfix: $fontNameInterfix);

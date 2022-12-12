@@ -1,0 +1,20 @@
+%custom-link {
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+
+    @include pos($left: 0, $bottom: 10%, $width: 100%, $height: 1px, $transform: scaleX(1));
+    display: block;
+
+    background-color: currentColor;
+    @include mainTransition(transform);
+  }
+
+  @include focused {
+    &::after {
+      transform: scaleX(0);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+$mainTransDur: 250ms;
+$mainTransFunc: cubic-bezier(0.4, 0, 0.2, 1);
+
+// prettier-ignore
+@mixin mainTransition($props...) {
+  @include transition(
+    $dur: $mainTransDur, 
+    $func: $mainTransFunc, 
+    $props: $props);
+}
+
+@mixin transition($args...) {
+  $propAliases: (
+    "dur": transition-duration,
+    "func": transition-timing-function,
+    "delay": transition-delay,
+    "props": transition-property,
+  );
+
+  @each $argName, $argValue in getKeywordsArgs($args) {
+    $argName: to-lower-case($argName);
+    $argName: map-get($propAliases, $argName) or $argName;
+
+    @if (isList($argValue)) {
+      $argValue: setSeparator($argValue, "comma");
+    }
+
+    #{$argName}: #{$argValue};
+  }
+}

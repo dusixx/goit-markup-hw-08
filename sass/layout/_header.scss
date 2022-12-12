@@ -1,0 +1,109 @@
+.header {
+  @include font($wt: 500, $sz: $mainFontSize, $lh: 16px, $ls: 0.02em);
+  border-bottom: 1px solid #ececec;
+
+  @include respond($to: "tablet") {
+    height: 60px;
+  }
+
+  &__container {
+    @extend .container;
+    @include flexCenter("cross");
+    height: 100%;
+  }
+}
+
+///////////////////////
+// nav
+///////////////////////
+
+.header {
+  &__nav {
+    @include respond($to: "tablet") {
+      display: none;
+    }
+
+    @include respond("tablet") {
+      display: block;
+      margin-left: 87px;
+      margin-right: auto;
+    }
+
+    @include respond("desktop") {
+      margin-left: 93px;
+    }
+  }
+}
+
+///////////////////////
+// contacts
+///////////////////////
+
+.header {
+  &__contacts {
+    @include respond($to: "tablet") {
+      display: none;
+    }
+
+    @include respond("tablet") {
+      @include flex($dir: column, $gap: 10px);
+      @include font($sz: 12px, $lh: 14px);
+    }
+
+    @include respond("desktop") {
+      @include flexCenter("cross", $gap: 50px);
+      @include font($sz: $mainFontSize, $lh: 16px);
+    }
+  }
+
+  &__contact-link {
+    @extend %link;
+    @include flexCenter("cross", $gap: 10px);
+
+    color: currentColor;
+    @include mainTransition(color);
+
+    // формирует высоту хедера
+    @include respond("desktop") {
+      padding: 32px 0;
+    }
+  }
+
+  &__contact-icon {
+    fill: currentColor;
+  }
+}
+
+///////////////////////
+// menu toggle
+///////////////////////
+
+.header {
+  &__btn-menu {
+    @extend %btn;
+
+    padding: 0;
+    margin-left: auto;
+    height: 40px;
+    width: 40px;
+
+    background-color: transparent;
+    @include mainTransition(color);
+
+    // todo: исправить - остается $colorAccent после сокрытия меню скриптом
+    @include focused {
+      color: $colorAccent;
+    }
+
+    @include respond("tablet") {
+      display: none;
+    }
+  }
+}
+
+.header__menu-icon {
+  width: 40px;
+  height: 40px;
+
+  fill: currentColor;
+}

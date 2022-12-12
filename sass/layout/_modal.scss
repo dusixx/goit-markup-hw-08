@@ -1,0 +1,64 @@
+$modalMinHeight: 581px;
+
+.modal {
+  @include pos($top: center, $left: center, $min-height: $modalMinHeight, $transform: scale(1));
+  width: 100%;
+  padding: 40px 10px;
+
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(black, 0.12), 0px 1px 1px rgba(black, 0.14), 0px 2px 1px rgba(black, 0.2);
+  @include mainTransition(transform);
+
+  @include respond("phone") {
+    padding: 40px;
+    width: 450px;
+  }
+
+  @include respond("desktop") {
+    width: 528px;
+  }
+
+  // высота вьюпорта меньше высоты модалки
+  // prettier-ignore
+  @media screen and (max-height: $modalMinHeight) {  //, (min-height: 1200px) {
+    @include pos($top: 10%, $left: center, $transform: scale(1));
+  }
+
+  &__btn-close {
+    @extend %btn;
+
+    @include pos($top: 8px, $right: 8px);
+    padding: 0;
+
+    // lh: 0; для центрирования контента (&times;)
+    @include font($sz: 24px, $lh: 0, $color: $colorTextSec);
+    @include mainTransition(color);
+
+    @include circle(30px);
+    background-color: transparent;
+    border: 1px solid rgba(black, 0.1);
+
+    @include focused {
+      color: $colorAccent;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 12px;
+
+    @include font($wt: 700, $sz: 20px, $lh: 30px, $color: $colorTextSec, $align: center);
+    overflow-wrap: break-word;
+
+    @include respond("desktop") {
+      @include font($sz: 20px, $lh: 23px);
+    }
+  }
+}
+
+.backdrop--hidden {
+  .modal {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}

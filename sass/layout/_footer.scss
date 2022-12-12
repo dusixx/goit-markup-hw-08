@@ -1,0 +1,75 @@
+.footer {
+  padding: 60px 0;
+  background-color: $colorGreyDark;
+
+  @include respond($upto: "smallest") {
+    min-width: bp("smallest");
+  }
+
+  @include respond("desktop") {
+    min-width: bp("desktop");
+  }
+
+  &__logo {
+    margin-bottom: 20px;
+
+    @include respond($to: "desktop") {
+      text-align: center;
+    }
+  }
+
+  &__container {
+    @extend .container;
+    @include flexCenter($gap: 60px, $wrap: true, $align: baseline);
+
+    @include respond("tablet", $to: "desktop") {
+      justify-content: space-between;
+      padding: 0 89px;
+    }
+
+    @include respond("desktop") {
+      gap: 93px;
+    }
+  }
+
+  &__title {
+    @extend %visually-hidden;
+  }
+
+  &__contacts {
+    :not(:last-child) {
+      margin-bottom: 9px;
+    }
+
+    @include respond($to: "desktop") {
+      text-align: center;
+    }
+  }
+
+  &__contact-link {
+    @include font($sz: $mainFontSize, $lh: 24px, $color: rgba(white, 0.6));
+    @include mainTransition(color);
+  }
+
+  &__subtitle {
+    display: block;
+    margin-bottom: 20px;
+    @include font($wt: 700, $sz: $mainFontSize, $lh: 16px, $color: white, $tt: "upper");
+
+    @include respond($to: "desktop") {
+      text-align: center;
+    }
+  }
+
+  &__socials {
+    @include flexCenter($gap: 10px, $wrap: true);
+  }
+}
+
+.footer__contact-link {
+  @extend %link;
+
+  &--accent {
+    color: white;
+  }
+}

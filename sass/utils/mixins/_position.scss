@@ -1,0 +1,76 @@
+//
+// top|left|bottom|right: center|value|value offset
+//
+@mixin pos($type: absolute, $args...) {
+  $posProps: (
+    "top": y -1,
+    "left": x -1,
+    "bottom": y 1,
+    "right": x 1,
+  );
+
+  $transform: null;
+  $translate: ();
+
+  // position
+  @if (isNonEmptyStr($type)) {
+    position: #{$type};
+  }
+
+  @each $argName, $argValue in getKeywordsArgs($args) {
+    $argName: to-lower-case($argName);
+    //
+    // top|left|bottom|right
+    //
+    @if (map-has-key($posProps, $argName)) {
+      $propData: map-get($posProps, $argName);
+      $axis: nth($propData, 1);
+      $direction: nth($propData, 2);
+      $offset: 0;
+      //
+      // bottom|right после top|left игнорим
+      // Например, задан $bottom: 10px 20%, в $translate уже есть "y".
+      // Значит ранее уже был задан $top - игнорим
+      $ignoreProp: listContains("bottom" "right", $argName) and map-has-key($translate, $axis);
+      $argValue: if($ignoreProp, null, $argValue);
+
+      @if (not $ignoreProp) {
+        //
+        // prop: center
+        @if ($argValue == "center") {
+          $argValue: 50%;
+          $offset: 50% * $direction;
+          //
+          //prop: value offset
+        } @else if(isList($argValue) and length($argValue) >= 2) {
+          $offset: nth($argValue, 2);
+          $argValue: nth($argValue, 1);
+        }
+
+        // если offset не задан - ставим 0 (по умолчанию)
+        $translate: mapSet($translate, $axis, $offset);
+      }
+      //
+      // other props
+      //
+    } @else {
+      // будет учтен ниже вместе с $translate
+      @if ($argName == "transform") {
+        $transform: setSeparator($argValue, "space");
+        $argValue: null;
+      }
+    }
+
+    #{$argName}: #{$argValue};
+  }
+
+  $offsetX: map-get($translate, "x");
+  $offsetY: map-get($translate, "y");
+
+  // добавляем к transform функцию translate()
+  @if ($offsetX != 0 or $offsetY != 0) {
+    $transform: $transform translate(#{$offsetX or 0}, #{$offsetY or 0});
+  }
+
+  transform: $transform;
+}

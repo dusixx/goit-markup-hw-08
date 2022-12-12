@@ -1,0 +1,22 @@
+.container {
+  // outline: 1px solid red;
+
+  padding: 0 15px;
+  margin: 0 auto;
+
+  @include respond($upto: "smallest") {
+    width: bp("smallest");
+  }
+
+  @include respond("phone") {
+    width: bp("phone");
+  }
+
+  @include respond("tablet") {
+    width: bp("tablet");
+  }
+
+  @include respond("desktop") {
+    width: bp("desktop");
+  }
+}

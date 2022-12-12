@@ -1,0 +1,9 @@
+.section-title {
+  margin-bottom: 30px;
+  @include font($sz: 28px, $lh: 33px, $color: $colorTextSec, $align: center);
+
+  @include respond("desktop") {
+    margin-bottom: 50px;
+    @include font($sz: 36px, $lh: 42px);
+  }
+}

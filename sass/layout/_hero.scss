@@ -1,0 +1,60 @@
+.hero {
+  margin: 0 auto;
+  padding: 118px 0;
+
+  background-color: #c4c4c4;
+
+  &--with-bgi {
+    @include bg(
+      $size: cover,
+      $img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg.jpg")
+    );
+  }
+
+  @include respond($upto: "smallest") {
+    max-width: bp("smallest");
+    min-width: bp("smallest");
+  }
+
+  @include respond("phone") {
+    max-width: bp("phone");
+    min-width: bp("phone");
+  }
+
+  @include respond("tablet") {
+    max-width: bp("tablet");
+    min-width: bp("tablet");
+  }
+
+  @include respond("desktop") {
+    max-width: 1600px;
+    min-width: bp("desktop");
+    padding: 200px 0;
+  }
+
+  &__btn {
+    @extend %btn-primary;
+    min-width: 200px;
+    margin: 0 auto;
+
+    @include respond("desktop") {
+      min-width: 216px;
+    }
+  }
+}
+
+.hero {
+  &__title {
+    margin: 0 auto 30px auto;
+    @include font($wt: 900, $sz: 26px, $lh: 42px, $ls: 0.06em, $color: white, $tt: "upper", $align: center);
+
+    @include respond("phone") {
+      width: 360px;
+    }
+
+    @include respond("desktop") {
+      @include font($sz: 44px, $lh: 60px);
+      width: 696px;
+    }
+  }
+}

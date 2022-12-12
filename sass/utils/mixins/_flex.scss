@@ -1,0 +1,82 @@
+//
+// включать в родительском блоке
+// block__list > block__list-item (&-item)
+//
+@mixin cardset($itemsPerRow, $gap, $itemSelector: "&-item", $args...) {
+  @if (not isNumWithUnit($gap)) {
+    @error "$gap: number with unit expected";
+  }
+
+  @if (not isInt($itemsPerRow) or $itemsPerRow <= 0) {
+    @error "$itemsPerRow: positive integer expected";
+  }
+
+  // можно ставить транзитом другие свойства через $args...
+  // например, $align, $center, $inline, $column-gap...
+  @include flex($wrap: true, $dir: row, $gap: $gap, $args...);
+
+  #{$itemSelector} {
+    $gapsTotal: $gap * ($itemsPerRow - 1);
+    flex-basis: calc((100% - $gapsTotal) / $itemsPerRow);
+  }
+}
+
+@mixin flexCenter($axis: "both", $args...) {
+  @include flex($center: $axis, $dir: row, $args...);
+}
+
+@mixin flex($inline: false, $args...) {
+  $propAliases: (
+    "dir": flex-direction,
+    "wrap": flex-wrap,
+    "align": align-items,
+    "justify": justify-content,
+    "gap-x": row-gap,
+    "gap-y": column-gap,
+    "grow": flex-grow,
+  );
+
+  //
+  // display
+  //
+  display: if($inline, inline-flex, flex);
+
+  @each $argName, $argValue in getKeywordsArgs($args) {
+    $argName: to-lower-case($argName);
+    //
+    // ставим выше
+    @if ($argName == "display") {
+      $argValue: null;
+    }
+    //
+    // justify-content|align-items
+    //
+    @if ($argName == "center") {
+      $argValue: to-lower-case($argValue);
+
+      @if ($argValue == "both" or $argValue == "main") {
+        justify-content: center;
+      }
+      @if ($argValue == "both" or $argValue == "cross") {
+        align-items: center;
+      }
+      // чтобы избежать некорректного развертывания
+      // center: both|cross|main ниже
+      $argValue: null;
+    }
+    //
+    // flex-wrap
+    //
+    @if ($argName == "wrap") {
+      $values: (
+        true: wrap,
+        false: nowrap,
+        "reverse": wrap-reverse,
+      );
+      $argValue: map-get($values, $argValue) or $argValue;
+    }
+
+    $argName: map-get($propAliases, $argName) or $argName;
+    #{$argName}: #{$argValue};
+  }
+}

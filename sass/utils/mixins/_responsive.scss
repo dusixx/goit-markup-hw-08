@@ -1,0 +1,64 @@
+$breakpoint: (
+  "smallest": 235px,
+  "phone": 480px,
+  "tablet": 768px,
+  "desktop": 1200px,
+);
+
+@function bp($v) {
+  @if (not isNumWithUnit($v)) {
+    @return map-get($breakpoint, ($v or ""));
+  }
+
+  @return $v;
+}
+
+@mixin respond($from: null, $args...) {
+  @include _respond($from: $from, $type: screen, $args...) {
+    @content;
+  }
+}
+
+//
+// @media $type and (min-width: $from) and (max-width: $to|$upto)
+//
+@mixin _respond($type: null, $args...) {
+  $params: (
+    "from": min-width 0,
+    "to": max-width -1.01,
+    "upto": max-width 0,
+  );
+
+  $feature: ();
+
+  // media-type: один тип устройства
+  @if (not isNonEmptyStr($type) or not listContains((all, print, screen, speech), $type)) {
+    $type: all;
+  }
+
+  @each $argName, $argValue in getKeywordsArgs($args) {
+    @if (map-has-key($params, $argName)) {
+      @if (isStr($argValue)) {
+        $argValue: map-get($breakpoint, $argValue);
+      }
+
+      @if (isNumWithUnit($argValue)) {
+        $data: map-get($params, $argName);
+        $mediaFunc: nth($data, 1);
+        $delta: nth($data, 2);
+
+        $feature: mapSet($feature, $mediaFunc, "and (#{$mediaFunc}: #{$argValue + $delta})");
+        //
+      } @else {
+        @warn "$#{$argName}: invalid value";
+      }
+    }
+  }
+
+  @if (length($feature) > 0) {
+    $feature: setSeparator(map-values($feature), "space");
+    @media #{$type""}#{$feature} {
+      @content;
+    }
+  }
+}

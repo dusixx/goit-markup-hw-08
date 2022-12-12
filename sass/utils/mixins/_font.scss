@@ -1,0 +1,106 @@
+// prettier-ignore
+@mixin fontFace($wt: (100, 200, 300, 400, 500, 600, 700, 800, 900), $args...) {
+  @each $w in $wt {
+    @include _fontFace($wt: $w, $args...);
+  }
+}
+
+// prettier-ignore
+@mixin _fontFace(
+  $fam: "", 
+  $wt: 400, 
+  $italic: false, 
+  $display: "swap",
+  $path: "fonts",
+  $ver: null,
+  $interfix: "",
+  $svgId: "",
+  $suffix: "")
+{
+  @if(not isNonEmptyStr($fam)) { 
+    @error "$fam: non empty string expected"; 
+  }
+
+  @if(not isValidFontWeight($wt)) { 
+    @error "$wt: invalid value"; 
+  }
+
+  @if(not isInt($ver) or $ver <= 0) { 
+    @error "$ver: positive integer expected"; 
+  }
+
+  @if(not isNonEmptyStr($svgId)) {
+    $svgId: $fam;
+    @warn "$svgId is missing";
+  }
+
+  $suffix: if($wt == 400, 
+    if($italic, "italic", "regular"),
+    if($italic, "#{$wt}italic", $wt)
+  );
+
+  $interfix: if(isNonEmptyStr($interfix),"-#{$interfix}", "");
+  $fileName: to-lower-case("#{$fam}-v#{$ver}#{$interfix}-#{$suffix}");
+  $path: '#{$path}/#{to-lower-case($fam)}/v#{$ver}';
+
+  @font-face {
+    font-family: $fam;
+    font-style: if($italic, italic, normal);
+    font-weight: $wt;
+    font-display: $display;
+
+    src: url('#{$path}/#{$fileName}.eot');
+    src: local(""), 
+      url('#{$path}/#{$fileName}.eot?#iefix') format('embedded-opentype'), 
+      url('#{$path}/#{$fileName}.woff2') format('woff2'),
+      url('#{$path}/#{$fileName}.woff') format('woff'),
+      url('#{$path}/#{$fileName}.ttf') format('truetype'),
+      url('#{$path}/#{$fileName}.svg##{$svgId}') format('svg');
+  }
+}
+
+@mixin font($fam: null, $args...) {
+  $propAliases: (
+    "sz": font-size,
+    "wt": font-weight,
+    "lh": line-height,
+    "ls": letter-spacing,
+    "tt": text-transform,
+    "color": color,
+    "decor": text-decoration,
+    "align": text-align,
+  );
+
+  // font-family
+  // передаем отдельно - meta.keywords игнорит кавычки
+  font-family: setSeparator($fam, "comma");
+
+  @each $argName, $argValue in getKeywordsArgs($args) {
+    $argName: to-lower-case($argName);
+    //
+    // чтобы не играться с кавычками
+    @if ($argName == "font-family") {
+      $argValue: null;
+      @warn "use $fam keyword instead $font-family";
+    }
+    //
+    // line-height
+    @if ($argName == "lh") {
+      $sz: getArg($args, "sz");
+      $argValue: calcLineHeight($argValue, $sz) or $argValue;
+    }
+    //
+    // text-transform
+    @if ($argName == "tt") {
+      $valAliases: (
+        "upper": uppercase,
+        "lower": lowercase,
+        "cap": capitalize,
+      );
+      $argValue: map-get($valAliases, $argValue) or $argValue;
+    }
+
+    $argName: map-get($propAliases, $argName) or $argName;
+    #{$argName}: #{$argValue};
+  }
+}

@@ -1,0 +1,16 @@
+.backdrop {
+  @include pos(fixed, $top: 0, $left: 0, $width: 100%, $height: 100%);
+  background-color: rgba(black, 0.2);
+
+  opacity: 1;
+  visibility: visible;
+  @include mainTransition(opacity, visibility);
+
+  overflow: scroll;
+
+  &--hidden {
+    // плейсхолдером делать нельзя -
+    // не перебивает обычное состояние
+    @include hidden;
+  }
+}

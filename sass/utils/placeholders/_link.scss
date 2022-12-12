@@ -1,0 +1,17 @@
+%link {
+  text-decoration: none;
+  color: currentColor;
+
+  @include focused {
+    color: $colorAccent;
+  }
+}
+
+%link--inverse {
+  text-decoration: none;
+  color: $colorAccent;
+
+  @include focused {
+    color: currentColor;
+  }
+}
