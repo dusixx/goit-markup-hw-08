@@ -48,7 +48,7 @@
     padding: 0 24px;
 
     @include font($sz: 18px, $lh: 28px, $color: white);
-    overflow: scroll;
+    overflow: auto;
 
     @include respond("tablet") {
       height: 168px;
