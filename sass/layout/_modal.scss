@@ -3,7 +3,7 @@ $modalMinHeight: 581px;
 .modal {
   @include pos($top: center, $left: center, $min-height: $modalMinHeight, $transform: scale(1));
   width: 100%;
-  padding: 40px 10px;
+  padding: 40px 20px;
 
   background-color: white;
   border-radius: 4px;
@@ -20,8 +20,7 @@ $modalMinHeight: 581px;
   }
 
   // высота вьюпорта меньше высоты модалки
-  // prettier-ignore
-  @media screen and (max-height: $modalMinHeight) {  //, (min-height: 1200px) {
+  @media screen and (max-height: $modalMinHeight) {
     @include pos($top: 10%, $left: center, $transform: scale(1));
   }
 

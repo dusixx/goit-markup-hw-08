@@ -1,5 +1,7 @@
 .services {
   @extend %section;
+  padding-top: 0;
+
   display: none;
 
   @include respond("desktop") {

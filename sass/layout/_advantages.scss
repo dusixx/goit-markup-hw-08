@@ -1,9 +1,6 @@
 .advantages {
   @extend %section;
 
-  // перебьет паддинг для %section
-  padding-bottom: 0;
-
   &__title {
     @extend %visually-hidden;
   }

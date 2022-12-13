@@ -1,12 +1,25 @@
 .work {
+  @include flex($dir: column);
+  height: 100%;
+
   &__thumb {
     position: relative;
-    width: 100%;
-    height: 100%;
-
+    height: 294px;
     overflow: hidden;
   }
 
+  &__picture {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+///////////////////////
+// desc
+///////////////////////
+
+.work {
   &__subtitle {
     margin-bottom: 4px;
     @include font($sz: 18px, $lh: 36px, $ls: 0.06em, $color: $colorTextSec);
@@ -17,24 +30,34 @@
   }
 
   &__desc {
+    flex-grow: 1;
     padding: 20px 24px;
 
     border: 1px solid #eeeeee;
     border-top: none;
   }
+}
 
+///////////////////////
+// overlay
+///////////////////////
+
+.work {
   &__about {
-    height: 168px;
+    height: 140px;
     padding: 0 24px;
 
     @include font($sz: 18px, $lh: 28px, $color: white);
+    overflow: scroll;
 
-    overflow: hidden;
+    @include respond("tablet") {
+      height: 168px;
+    }
   }
 
   &__overlay {
     @include pos($top: 0 100%, $left: 0, $width: 100%, $height: 100%);
-    @include flexCenter("cross");
+    @include flexCenter();
 
     background-color: rgba(33, 150, 243, 0.9);
     @include mainTransition(transform);
