@@ -13,7 +13,7 @@
     }
 
     @include respond("desktop") {
-      @include cardset(4, $gap: 30px, $align: flex-start);
+      @include cardset(4, $gap: 30px);
     }
   }
 }

@@ -62,3 +62,13 @@ $breakpoint: (
     }
   }
 }
+
+@mixin dpr($from) {
+  @if (isNum($from) and $from > 0) {
+    @media (min-device-pixel-ratio: #{$from}), 
+      (min-resolution: (96dpi * $from)), 
+      (min-resolution: "#{$from}dppx") {
+      @content;
+    }
+  }
+}

@@ -1,3 +1,11 @@
+@mixin positioned($args...) {
+  @include pos($args...);
+}
+
+@mixin position($args...) {
+  @include pos($args...);
+}
+
 //
 // top|left|bottom|right: center|value|value offset
 //
@@ -12,9 +20,17 @@
   $transform: null;
   $translate: ();
 
+  //
   // position
+  //
+
   @if (isNonEmptyStr($type)) {
     position: #{$type};
+    //
+    // если type явно не задан и нет других аргументов
+    // ставим relative
+  } @else if (length($args) == 0) {
+    $type: relative;
   }
 
   @each $argName, $argValue in getKeywordsArgs($args) {
@@ -64,8 +80,8 @@
     #{$argName}: #{$argValue};
   }
 
-  $offsetX: map-get($translate, "x");
-  $offsetY: map-get($translate, "y");
+  $offsetX: map-get($translate, "x") or 0;
+  $offsetY: map-get($translate, "y") or 0;
 
   // добавляем к transform функцию translate()
   @if ($offsetX != 0 or $offsetY != 0) {

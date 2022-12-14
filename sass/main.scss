@@ -1,28 +1,41 @@
+//
 // vendors
+//
 @import "./vendors/modern-normalize";
 @import "./vendors/visually-hidden";
 
+//
 // utils
+//
 @import "./utils/valiables";
 @import "./utils/functions";
+
+// mixins
 @import "./utils/mixins/misc";
 @import "./utils/mixins/responsive";
 @import "./utils/mixins/font";
 @import "./utils/mixins/position";
 @import "./utils/mixins/animation";
 @import "./utils/mixins/flex";
+@import "./utils/mixins/bg";
+
+// placeholders
 @import "./utils/placeholders/btn";
 @import "./utils/placeholders/link";
 @import "./utils/placeholders/custom-link";
 @import "./utils/placeholders/input-notice";
 @import "./utils/placeholders/section";
 
+//
 // base
+//
 @import "./base/reset";
 @import "./base/fonts";
 @import "./base/base";
 
+//
 // components
+//
 @import "./components/typography";
 @import "./components/logo";
 @import "./components/work";
@@ -33,7 +46,9 @@
 @import "./components/socials-link";
 @import "./components/scroll-off";
 
+//
 // layout
+//
 @import "./layout/container";
 @import "./layout/header";
 @import "./layout/hero";

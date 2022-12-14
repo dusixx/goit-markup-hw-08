@@ -1,6 +1,16 @@
 @use "sass:map";
 
-@mixin argsToProps($args...) {
+// у тумбы должна быть фиксированная высота
+@mixin fit($v) {
+  width: 100%;
+  height: 100%;
+
+  @if (isNonEmptyStr($v)) {
+    object-fit: $v;
+  }
+}
+
+@mixin props($args...) {
   @each $argName, $argValue in getKeywordsArgs($args) {
     $argName: to-lower-case($argName);
     #{$argName}: #{$argValue};
@@ -26,26 +36,5 @@
   border-radius: 50%;
   // можно доставить любое свойство, через одноименный keyword
   // например $display: block, $background-color...
-  @include argsToProps($args...);
-}
-
-// prettier-ignore
-@mixin bg(
-  $pos: center, 
-  $size: contain,
-  $repeat: no-repeat,
-  $color:null,
-  $origin: null, 
-  $img: null) 
-{
-  background-origin: $origin;
-  background-size: $size;
-  
-  @if (isList($img)) {
-    $img: setSeparator($img, "comma");
-  }
-  background-image: $img;
-  background-repeat: $repeat;
-  background-position: $pos;
-  background-color: $color;
+  @include props($args...);
 }

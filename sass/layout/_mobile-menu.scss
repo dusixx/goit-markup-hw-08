@@ -1,11 +1,13 @@
 .mobile-menu {
   @include pos($type: fixed, $top: 0, $left: 0, $width: 100%, $height: 100%);
+
+  @include flex($dir: column);
   padding: 48px 0 48px 40px;
 
   @include font($wt: 500, $ls: 0.02em);
   background-color: white;
 
-  overflow: scroll;
+  overflow: auto;
   overflow-wrap: break-word;
 
   opacity: 1;
@@ -17,8 +19,8 @@
   }
 
   &--hidden {
-    // плейсхолдером делать нельзя -
-    // не перебивает cтили тк стоит в итоговом css выше
+    // плейсхолдером делать нельзя - стоит в итоговом css выше
+    // и перебивается .mobile-menu {...}
     @include hidden;
   }
 }
@@ -58,8 +60,6 @@
 ///////////////////////
 
 .mobile-menu {
-  @include flex($dir: column);
-
   &__nav {
     @include flex($dir: column, $gap: 32px);
     @include font($sz: 40px, $lh: 47px, $color: $colorTextSec);

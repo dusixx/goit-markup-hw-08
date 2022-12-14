@@ -12,7 +12,7 @@
   }
 
   // можно ставить транзитом другие свойства через $args...
-  // например, $align, $center, $inline, $column-gap...
+  // например, $align, $center, $column-gap, $height...
   @include flex($wrap: true, $dir: row, $gap: $gap, $args...);
 
   #{$itemSelector} {
@@ -33,7 +33,6 @@
     "justify": justify-content,
     "gap-x": row-gap,
     "gap-y": column-gap,
-    "grow": flex-grow,
   );
 
   //
@@ -61,7 +60,7 @@
         align-items: center;
       }
       // чтобы избежать некорректного развертывания
-      // center: both|cross|main ниже
+      // center: both|cross|main ниже (*)
       $argValue: null;
     }
     //
@@ -77,6 +76,6 @@
     }
 
     $argName: map-get($propAliases, $argName) or $argName;
-    #{$argName}: #{$argValue};
+    #{$argName}: #{$argValue}; // (*)
   }
 }

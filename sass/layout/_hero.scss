@@ -1,15 +1,7 @@
 .hero {
   margin: 0 auto;
   padding: 118px 0;
-
   background-color: #c4c4c4;
-
-  &--with-bgi {
-    @include bg(
-      $size: cover,
-      $img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg.jpg")
-    );
-  }
 
   @include respond($upto: "smallest") {
     max-width: bp("smallest");
@@ -42,6 +34,47 @@
     }
   }
 }
+
+///////////////////////
+// bgi
+///////////////////////
+
+.hero--with-bgi {
+  @include bg(
+    $pos: center,
+    $sz: cover,
+    $repeat: no-repeat,
+    $img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-phone.jpg")
+  );
+
+  @include dpr(2) {
+    @include bg($img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-phone@2x.jpg"));
+  }
+
+  @include respond("tablet") {
+    @include bg($img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-tablet.jpg"));
+
+    @include dpr(2) {
+      @include bg(
+        $img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-tablet@2x.jpg")
+      );
+    }
+  }
+
+  @include respond("desktop") {
+    @include bg($img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-desktop.jpg"));
+
+    @include dpr(2) {
+      @include bg(
+        $img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-desktop@2x.jpg")
+      );
+    }
+  }
+}
+
+///////////////////////
+// title
+///////////////////////
 
 .hero {
   &__title {

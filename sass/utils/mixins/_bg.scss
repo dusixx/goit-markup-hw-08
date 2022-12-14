@@ -1,0 +1,18 @@
+@mixin bg($args...) {
+  $propAliases: (
+    "pos": position,
+    "sz": size,
+    "img": image,
+  );
+
+  @each $argName, $argValue in getKeywordsArgs($args) {
+    $argName: to-lower-case($argName);
+
+    @if (isList($argValue)) {
+      $argValue: setSeparator($argValue, "comma");
+    }
+
+    $argName: map-get($propAliases, $argName) or $argName;
+    background-#{$argName}: $argValue;
+  }
+}
