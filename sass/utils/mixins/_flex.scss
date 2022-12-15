@@ -45,7 +45,7 @@
     //
     @if ($argName == "display") {
       $argValue: null;
-      @warn "use $inline: (true|false) instead $display";
+      @warn "use $inline: true|false instead $display";
     }
     //
     // justify-content|align-items

@@ -52,26 +52,6 @@
     margin: 0 auto;
     min-width: 200px;
   }
-
-  &__check {
-    @include font($sz: 12px, $lh: 14px);
-    margin-bottom: 30px;
-
-    @include respond("desktop") {
-      @include font($sz: 14px, $lh: 24px);
-    }
-  }
-
-  &__terms-link {
-    color: $colorAccent;
-
-    text-underline-offset: 3px;
-    text-decoration: underline;
-
-    @include focused {
-      text-decoration: none;
-    }
-  }
 }
 
 .ordering__text-input::placeholder {
@@ -117,6 +97,32 @@
     border-color: $colorWarn;
     & ~ .ordering__field-icon {
       fill: $colorWarn;
+    }
+  }
+}
+
+/////////////////////
+// agreement
+/////////////////////
+
+.ordering {
+  &__check {
+    @include font($sz: 12px, $lh: 14px);
+    margin-bottom: 30px;
+
+    @include respond("desktop") {
+      @include font($sz: 14px, $lh: 24px);
+    }
+  }
+
+  &__terms-link {
+    color: $colorAccent;
+
+    text-underline-offset: 3px;
+    text-decoration: underline;
+
+    @include focused {
+      text-decoration: none;
     }
   }
 }

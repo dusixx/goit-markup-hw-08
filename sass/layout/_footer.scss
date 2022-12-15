@@ -10,14 +10,6 @@
     min-width: bp("desktop");
   }
 
-  &__logo {
-    margin-bottom: 20px;
-
-    @include respond($to: "desktop") {
-      text-align: center;
-    }
-  }
-
   &__container {
     @extend .container;
     @include flexCenter($gap: 60px, $wrap: true, $align: baseline);
@@ -29,6 +21,14 @@
 
     @include respond("desktop") {
       gap: 93px;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 20px;
+
+    @include respond($to: "desktop") {
+      text-align: center;
     }
   }
 

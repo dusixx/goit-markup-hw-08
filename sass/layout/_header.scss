@@ -90,7 +90,7 @@
     background-color: transparent;
     @include mainTransition(color);
 
-    // todo: исправить - остается $colorAccent после сокрытия меню скриптом
+    // !! остается $colorAccent после сокрытия меню скриптом
     @include focused {
       color: $colorAccent;
     }
