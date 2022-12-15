@@ -6,7 +6,7 @@
   const modal = document.querySelector("[data-modal]");
   const backdrop = document.querySelector("[data-backdrop]");
 
-  btnOpenModal.addEventListener("click", toggleModal);
+  btnOpenModal && btnOpenModal.addEventListener("click", toggleModal);
   btnCloseModal.addEventListener("click", toggleModal);
   formOrdering.addEventListener("submit", toggleModal);
   backdrop.addEventListener("click", toggleModal);
