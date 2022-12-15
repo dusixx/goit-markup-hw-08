@@ -19,9 +19,7 @@
 
 .header {
   &__nav {
-    @include respond($to: "tablet") {
-      display: none;
-    }
+    display: none;
 
     @include respond("tablet") {
       display: block;
@@ -41,9 +39,7 @@
 
 .header {
   &__contacts {
-    @include respond($to: "tablet") {
-      display: none;
-    }
+    display: none;
 
     @include respond("tablet") {
       @include flex($dir: column, $gap: 10px);

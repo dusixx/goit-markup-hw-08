@@ -821,10 +821,8 @@ body {
   height: 100%;
 }
 
-@media screen and (max-width: 766.99px) {
-  .header__nav {
-    display: none;
-  }
+.header__nav {
+  display: none;
 }
 @media screen and (min-width: 768px) {
   .header__nav {
@@ -839,10 +837,8 @@ body {
   }
 }
 
-@media screen and (max-width: 766.99px) {
-  .header__contacts {
-    display: none;
-  }
+.header__contacts {
+  display: none;
 }
 @media screen and (min-width: 768px) {
   .header__contacts {
