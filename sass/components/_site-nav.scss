@@ -21,7 +21,7 @@
 
 .site-nav__link--current::after {
   content: "";
-
+  
   @include pos($left: 0, $bottom: -1px, $width: 100%, $height: 4px, $display: block);
 
   background-color: $colorAccent;

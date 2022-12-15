@@ -1,8 +1,8 @@
 .ordering {
   &__text-fields {
     @include flex($dir: column, $gap: 10px);
-
     margin-bottom: 20px;
+
     @include font($sz: 12px, $lh: 14px, $ls: 0.01em);
   }
 
@@ -63,12 +63,14 @@
   }
 
   &__terms-link {
-    // @extend %custom-link;
-    // @extend %link--inverse;
-    // margin-left: 3px;
     color: $colorAccent;
-    text-decoration: underline;
+
     text-underline-offset: 3px;
+    text-decoration: underline;
+
+    @include focused {
+      text-decoration: none;
+    }
   }
 }
 

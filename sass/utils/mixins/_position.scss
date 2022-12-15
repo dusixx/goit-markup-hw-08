@@ -19,11 +19,9 @@
 
   $transform: null;
   $translate: ();
-
   //
   // position
   //
-
   @if (isNonEmptyStr($type)) {
     position: #{$type};
     //

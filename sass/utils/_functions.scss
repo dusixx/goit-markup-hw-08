@@ -2,6 +2,10 @@
 @use "sass:meta";
 @use "sass:map";
 
+///////////////////////
+// prove
+///////////////////////
+
 @function isStr($v) {
   @return (type-of($v) == "string");
 }
@@ -52,6 +56,10 @@
   @return false;
 }
 
+///////////////////////
+// math
+///////////////////////
+
 @function stripUnit($num) {
   @return if(isNum($num), math.div($num, ($num * 0 + 1)), null);
 }
@@ -94,6 +102,10 @@
 
   @return null;
 }
+
+///////////////////////
+// collections
+///////////////////////
 
 @function getArg($args, $name) {
   @return map-get(meta.keywords($args), $name);

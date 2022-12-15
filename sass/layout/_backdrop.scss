@@ -6,7 +6,7 @@
   visibility: visible;
   @include mainTransition(opacity, visibility);
 
-  overflow: scroll;
+  overflow: auto;
 
   &--hidden {
     // плейсхолдером нельзя - не перебивает обычное состояние

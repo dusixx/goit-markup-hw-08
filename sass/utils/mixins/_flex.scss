@@ -43,9 +43,9 @@
   @each $argName, $argValue in getKeywordsArgs($args) {
     $argName: to-lower-case($argName);
     //
-    // ставим выше
     @if ($argName == "display") {
       $argValue: null;
+      @warn "use $inline: (true|false) instead $display";
     }
     //
     // justify-content|align-items

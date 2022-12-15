@@ -2,11 +2,7 @@
   @include flex($dir: column, $height: 100%);
 
   &__thumb {
-    @include pos(relative, $height: 294px, $overflow: hidden);
-  }
-
-  &__picture {
-    @include fit(cover);
+    @include pos(relative, $overflow: hidden);
   }
 }
 

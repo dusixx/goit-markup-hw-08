@@ -17,13 +17,11 @@
   }
 
   window.matchMedia(`(min-width: ${bpTablet}px)`).addEventListener("change", e => {
-    // не должно включать сролл, если открыта модалка - только если открыто меню
+    // включает скролл только если открыто меню (не модалка)
     if (e.matches && !menuMobile.classList.contains(classMenuHidden)) {
       menuMobile.classList.add(classMenuHidden);
       btnMenuOpen.setAttribute("aria-expanded", false);
       toggleScroll(scrollOn);
-      // убираем цвет фокуса - не обновляется, если скрывать меню скриптом
-      // btnMenuOpen.style.color = "initial";
     }
   });
 })();

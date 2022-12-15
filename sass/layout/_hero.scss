@@ -44,30 +44,26 @@
     $pos: center,
     $sz: cover,
     $repeat: no-repeat,
-    $img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-phone.jpg")
+    $img: bgiOverlay($colorHeroOverlay) url("../images/hero/hero-bg-phone.jpg")
   );
 
   @include dpr(2) {
-    @include bg($img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-phone@2x.jpg"));
+    @include bg($img: bgiOverlay($colorHeroOverlay) url("../images/hero/hero-bg-phone@2x.jpg"));
   }
 
   @include respond("tablet") {
-    @include bg($img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-tablet.jpg"));
+    @include bg($img: bgiOverlay($colorHeroOverlay) url("../images/hero/hero-bg-tablet.jpg"));
 
     @include dpr(2) {
-      @include bg(
-        $img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-tablet@2x.jpg")
-      );
+      @include bg($img: bgiOverlay($colorHeroOverlay) url("../images/hero/hero-bg-tablet@2x.jpg"));
     }
   }
 
   @include respond("desktop") {
-    @include bg($img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-desktop.jpg"));
+    @include bg($img: bgiOverlay($colorHeroOverlay) url("../images/hero/hero-bg-desktop.jpg"));
 
     @include dpr(2) {
-      @include bg(
-        $img: linear-gradient($colorHeroOverlay, $colorHeroOverlay) url("../images/hero/hero-bg-desktop@2x.jpg")
-      );
+      @include bg($img: bgiOverlay($colorHeroOverlay) url("../images/hero/hero-bg-desktop@2x.jpg"));
     }
   }
 }
